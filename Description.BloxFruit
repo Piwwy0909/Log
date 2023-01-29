@@ -1,3 +1,12 @@
+
+_G.PiwwyBf = {
+    ["Inventory Log Des/Sheet"] = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana","Cursed Dual Katana","Yama","Buddy Sword","Canvander"},
+    ["ShowLegendary"] = true,
+    ["OnlyRareItemPlus"] = true,
+    ["Show Mastery"] = true,
+    ["Log Delay"] = 10 --Sec
+}
+
 local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
 local Request = syn.request
 local function formatNumber(number)
@@ -50,7 +59,6 @@ spawn(
             Fragment = foo(format_number_(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)))
             Race = game:GetService("Players").LocalPlayer.Data.Race.Value
             Level = game:GetService("Players").LocalPlayer.Data.Level.Value
- 
             if
                 game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                     game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
@@ -71,7 +79,7 @@ spawn(
                 if __["Type"] == "Sword" then
                     if Sword == "" then
                         if _G.PiwwyBf["Inventory Log Des/Sheet"] and _G.PiwwyBf["OnlyRareItemPlus"]  then
-                            if table.find(_G.Item, __["Name"]) then
+                            if table.find(_G.PiwwyBf["Inventory Log Des/Sheet"], __["Name"]) then
                                 Sword = __["Name"] .. " "
                             end
                         else
@@ -512,7 +520,7 @@ function GetMasGun(Name)
             end
         end
     end
-end                 if _G.ShowMasAllies then
+end                 if _G.PiwwyBf["Show Mastery"] then
                         if CDKYed then
                         Payload = Payload .." CDK: "..GetMasterySword("Cursed Dual Katana").." |"
                         end
