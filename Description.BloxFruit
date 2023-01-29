@@ -1,12 +1,3 @@
-
-_G.PiwwyBf = {
-    ["Inventory Log Des/Sheet"] = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana","Cursed Dual Katana","Yama","Buddy Sword","Canvander"},
-    ["ShowLegendary"] = true,
-    ["OnlyRareItemPlus"] = true,
-    ["Show Mastery"] = true,
-    ["Log Delay"] = 10 --Sec
-}
-
 local Level = game:GetService("Players").LocalPlayer.Data.Level.Value
 local Request = syn.request
 local function formatNumber(number)
